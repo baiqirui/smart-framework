@@ -1,0 +1,14 @@
+smartMybatis:
+    configLocation: classpath:mybatis/mysql/mybatis-config.xml
+
+mapper:
+    mappers: com.szzt.smart.framework.mybatis.mapper.FrameworkBaseMapper
+    not-empty: false
+    identity: MYSQL
+    before: true
+
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql

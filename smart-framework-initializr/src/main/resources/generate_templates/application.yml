@@ -1,0 +1,145 @@
+server:
+  port: 8080
+
+{{#useSwaggerModel}}
+swagger:  #swagger配置
+   enable: true  # 是否开启swagger，建议生产关闭，默认true
+   basePackage: {{packageName}}.controller  #swagger扫描的api包，不能为空
+   title:  接入API列表  # 标题
+   description: 接入API列表 #描述
+   groupName: group-1
+{{/useSwaggerModel}}
+
+
+
+spring:
+  profiles:
+      active: local
+  application:
+      name: {{artifactId}}
+{{#useKafkaModel}}
+  kafka:
+      producer:
+        bootstrap-servers: 192.168.2.132:9092 #kafka生产者服务器,多台服务器用用逗号分隔
+      consumer:
+        bootstrap-servers: 192.168.2.132:9092 #kafka消费者服务器，多台服务器用用逗号分隔
+        auto-offset-reset: latest
+        group-id: lu-kafka-test-1 #消费组ID
+{{/useKafkaModel}}
+
+
+{{#useMybatisModel}}
+datasource:
+   {{^dbInfo}}
+    writeDS:
+         url: jdbc:mysql://localhost:3306/b2b_market?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;noAccessToProcedureBodies=true&amp;generateSimpleParameterMetadata=true&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&useSSL=false
+         username: xxx
+         password: xxx
+         driverClassName: com.mysql.jdbc.Driver
+    readDS:
+         url: jdbc:mysql://localhost:3306/b2b_market?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;noAccessToProcedureBodies=true&amp;generateSimpleParameterMetadata=true&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&useSSL=false
+         username: xxx
+         password: xxx
+         driverClassName: com.mysql.jdbc.Driver
+    {{/dbInfo}}
+    {{#dbInfo}}
+        writeDS:
+             url: {{dbUrl}}?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;noAccessToProcedureBodies=true&amp;generateSimpleParameterMetadata=true&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&useSSL=false
+             username: {{dbUserName}}
+             password: {{dbPassword}}
+             driverClassName: com.mysql.jdbc.Driver
+        readDS:
+             url: {{dbUrl}}?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;noAccessToProcedureBodies=true&amp;generateSimpleParameterMetadata=true&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&useSSL=false
+             username: {{dbUserName}}
+             password: {{dbPassword}}
+             driverClassName: com.mysql.jdbc.Driver
+    {{/dbInfo}}
+
+smartMybatis:
+    aliasPackage: {{packageName}}.entity
+    mapperLocation: classpath*:mapper/**/*.xml
+    mapper-scanner: {{packageName}}.mapper
+    idStrategy: AUTO
+{{/useMybatisModel}}
+
+
+
+{{#useWebModel}}
+logging:
+  file: ${spring.application.name}
+  path: /opt/logs/${spring.application.name}
+  level:
+    com:
+      szzt:
+        smart: debug
+{{/useWebModel}}
+
+
+{{#useRedisModel}}
+redis:
+  cluster-nodes: 10.10.3.71:7001 #redis集群地址
+  expire-seconds: 1200000
+  command-timeout: 5000
+{{/useRedisModel}}
+
+
+{{#useCloudModel}}
+eureka:
+  instance:
+    appname: ${spring.application.name}
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+{{/useCloudModel}}
+
+
+{{#useXxlJobModel}}
+xxljob:
+  port: 9993 #xxljob执行器通信端口
+  appname: smart-framrework-xxljob
+  addresses: http://127.0.0.1:8080/xxl-job-admin #xxljob调度器地址
+  logpath: xxljobLogs
+{{/useXxlJobModel}}
+
+
+{{#useElasticJobModel}}
+#此配置可移入配置中心作为公共配置
+smartElasticJob:
+  serverList: 10.21.156.33:2181  # zk集群地址
+  namespace: jobs/${spring.application.name} # 默认配置不用更改，或者不用配置
+{{/useElasticJobModel}}
+
+{{#useApiDocModel}}
+apiDoc:
+  enable: true
+  title: 接口文档 # 标题
+  description: 接口文档描述
+  version: 1.0.0 #版本
+  packageName: {{packageName}}.controller #指定生成哪个包下controller的文档
+{{/useApiDocModel}}
+
+
+
+{{#usePhoenixModel}}
+phoenix:
+  enable: false  #默认关闭
+  url: jdbc:phoenix:hadoop04:2181  #根据项目自定义配置
+  username: root     #根据项目自定义配置
+  password: 123456   #根据项目自定义配置
+  mybatis:
+    mapper-location: classpath:hbasemapper/**/*.xml             #根据项目自定义配置
+    configLocation:  classpath:mybatis/hbase/mybatis-config.xml #根据项目自定义配置
+    mapper-scanner:  com.lucloudtech.resultsupply.hbasemapper   #根据项目自定义配置
+{{/usePhoenixModel}}
+
+
+{{#useZookeeperModel}}
+zookeeper:
+  connect-string: zoo-1.lvsema.cn:2181,zoo-2.lvsema.cn:2181,zoo-3.lvsema.cn:2181  # zookeeper连接地址多个用逗号隔开,根据项目自定义配置
+  enabled: false # 默认关闭
+  baseSleepTimeMs: 50
+  maxRetries: 10
+  maxSleepMs: 10
+  blockUntilConnectedWait: 10
+  blockUntilConnectedUnit: seconds
+{{/useZookeeperModel}}

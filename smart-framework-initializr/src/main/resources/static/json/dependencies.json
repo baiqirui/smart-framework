@@ -1,0 +1,62 @@
+[
+  {
+    "groupId": "com.szzt.smart",
+    "artifactId": "smart-framework-starter-apidoc",
+    "name": "apidoc"
+  },
+  {
+    "groupId": "com.szzt.smart",
+    "artifactId": "smart-framework-starter-cloud",
+    "name": "cloud"
+  },
+  {
+    "groupId": "com.szzt.smart",
+    "artifactId": "smart-framework-starter-elasticjob",
+    "name": "elasticjob"
+  },
+  {
+    "groupId": "com.szzt.smart",
+    "artifactId": "smart-framework-starter-feign",
+    "name": "feign"
+  },
+  {
+    "groupId": "com.szzt.smart",
+    "artifactId": "smart-framework-starter-kafka",
+    "name": "kafka"
+  },
+  {
+    "groupId": "com.szzt.smart",
+    "artifactId": "smart-framework-starter-mybatis",
+    "name": "mybatis"
+  },
+  {
+    "groupId": "com.szzt.smart",
+    "artifactId": "smart-framework-starter-phoenix",
+    "name": "phoenix"
+  },
+  {
+    "groupId": "com.szzt.smart",
+    "artifactId": "smart-framework-starter-redis",
+    "name": "redis"
+  },
+  {
+    "groupId": "com.szzt.smart",
+    "artifactId": "smart-framework-starter-swagger",
+    "name": "swagger"
+  },
+  {
+    "groupId": "com.szzt.smart",
+    "artifactId": "smart-framework-starter-web",
+    "name": "web"
+  },
+  {
+    "groupId": "com.szzt.smart",
+    "artifactId": "smart-framework-starter-xxljob",
+    "name": "xxljob"
+  },
+  {
+    "groupId": "com.szzt.smart",
+    "artifactId": "smart-framework-starter-zookeeper",
+    "name": "zookeeper"
+  }
+]

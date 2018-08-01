@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>smart-framework-starter</artifactId>
+    <name>smart-framework-starter</name>
+    <description>smart-framework-starter</description>
+    <packaging>pom</packaging>
+
+
+    <parent>
+        <groupId>com.szzt.smart</groupId>
+        <artifactId>smart-framework-parent</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../smart-framework-parent</relativePath>
+    </parent>
+
+
+    <properties>
+        <main.basedir>${basedir}/..</main.basedir>
+    </properties>
+
+
+    <modules>
+        <module>smart-framework-starter-web</module>
+        <module>smart-framework-starter-mybatis</module>
+        <module>smart-framework-starter-swagger</module>
+        <module>smart-framework-starter-redis</module>
+        <module>smart-framework-starter-feign</module>
+        <module>smart-framework-starter-xxljob</module>
+        <module>smart-framework-starter-cloud</module>
+        <module>smart-framework-starter-kafka</module>
+        <module>smart-framework-starter-zookeeper</module>
+		<module>smart-framework-starter-phoenix</module>
+        <module>smart-framework-starter-elasticjob</module>
+		<module>smart-framework-starter-apidoc</module>
+		<module>smart-framework-starter-metrics</module>
+    </modules>
+
+</project>

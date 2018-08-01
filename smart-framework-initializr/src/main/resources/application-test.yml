@@ -1,0 +1,14 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: smart-initializr
+  thymeleaf:
+    cache: false
+    prefix: classpath:/thymeleaf_templates/
+    mode: LEGACYHTML5
+
+
+
+

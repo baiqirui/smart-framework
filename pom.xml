@@ -1,0 +1,64 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.szzt.smart</groupId>
+  <artifactId>smart-framework-build</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0.0-SNAPSHOT</version>
+  <name>smart-framework-build</name>
+  <description>smart-framework-build</description>
+
+
+  <properties>
+    <main.basedir>${basedir}</main.basedir>
+  </properties>
+  
+  <profiles>
+    <profile>
+      <id>default</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <modules>
+        <module>smart-framework-autoconfigure</module>
+        <module>smart-framework-dependencies</module>
+        <module>smart-framework-starters</module>
+        <module>smart-framework-parent</module>
+      </modules>
+    </profile>
+  </profiles>
+  
+  <repositories>
+    <repository>
+      <id>smart-nexus</id>
+      <name>smart nexus</name>
+      <url>http://175.6.40.19:10000/nexus/content/groups/public/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+	
+	<repository>
+         <id>nexus-aliyun</id>
+         <name>Nexus aliyun</name>
+         <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+    </repository>
+  </repositories>
+  
+   <distributionManagement>
+        <repository>
+            <id>smart-nexus-releases</id>
+            <name>smart-nexus-releases</name>
+            <url>http://175.6.40.19:10000/nexus/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>smart-nexus-snapshot</id>
+            <name>smart-nexus-snapshot</name>
+            <url>http://175.6.40.19:10000/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+</project>

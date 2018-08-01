@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.szzt.smart</groupId>
+    <artifactId>smart-framework-dependencies</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>smart-framework-dependencies</name>
+    <packaging>pom</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <spring-boot.version>1.5.10.RELEASE</spring-boot.version>
+        <spring.cloud.version>Dalston.SR5</spring.cloud.version>
+        <java.version>1.8</java.version>
+    </properties>
+
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- springboot依赖 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+
+            <!-- springcloud依赖 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.szzt.smart</groupId>
+                <artifactId>smart-framework-autoconfigure</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.szzt.smart</groupId>
+                <artifactId>smart-framework-starter-swagger</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.szzt.smart</groupId>
+                <artifactId>smart-framework-starter-web</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.szzt.smart</groupId>
+                <artifactId>smart-framework-starter-mybatis</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.szzt.smart</groupId>
+                <artifactId>smart-framework-starter-redis</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.szzt.smart</groupId>
+                <artifactId>smart-framework-starter-feign</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.szzt.smart</groupId>
+                <artifactId>smart-framework-starter-xxljob</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.szzt.smart</groupId>
+                <artifactId>smart-framework-starter-cloud</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.szzt.smart</groupId>
+                <artifactId>smart-framework-starter-kafka</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.szzt.smart</groupId>
+                <artifactId>smart-framework-starter-zookeeper</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.szzt.smart</groupId>
+                <artifactId>smart-framework-starter-phoenix</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.szzt.smart</groupId>
+                <artifactId>smart-framework-starter-elasticjob</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.szzt.smart</groupId>
+                <artifactId>smart-framework-starter-apidoc</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+			
+			<dependency>
+                <groupId>com.szzt.smart</groupId>
+                <artifactId>smart-framework-starter-metrics</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot.version}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>repackage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.3</version>
+                    <configuration>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                        <compilerVersion>${java.version}</compilerVersion>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                        <showWarnings>true</showWarnings>
+                    </configuration>
+                </plugin>
+                <!--配置生成源码包-->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>3.0.1</version>
+                    <executions>
+                        <execution>
+                            <id>attach-sources</id>
+                            <goals>
+                                <goal>jar</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <distributionManagement>
+        <repository>
+            <id>smart-nexus-releases</id>
+            <name>smart-nexus-releases</name>
+            <url>http://175.6.40.19:10000/nexus/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>smart-nexus-snapshot</id>
+            <name>smart-nexus-snapshot</name>
+            <url>http://175.6.40.19:10000/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+    <!--
+        <repositories>
+            <repository>
+                <id>szzt.smart-nexus</id>
+                <name>Nexus aliyun</name>
+                <url>http://47.93.229.100:8081/repository/maven-public/</url>
+            </repository>
+
+            <repository>
+                <id>nexus-aliyun</id>
+                <name>Nexus aliyun</name>
+                <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+            </repository>
+
+    </repositories> -->
+</project>

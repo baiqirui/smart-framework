@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="/css/spring.css"/>
+    <title>Smart Framework project initializr</title>
+</head>
+<body>
+<div class="container start-main">
+    <div class="row form-inline text-center">
+        <div class="form-group project-choice">
+            <h2>
+                    <span class="rwd-line">
+                        <label th:text="'Smart Framework dependencies:&nbsp' + ${frameworkVersion}">smart Framework dependencies:</label>
+                        <input type="hidden" name="frameworkVersion" id="frameworkVersion" th:value="${frameworkVersion}">
+                    </span>
+            </h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-6">
+            <h2>Project Metadata</h2>
+            <p>Artifact coordinates</p>
+            <div class="form-group groupid-form-group">
+                <label for="groupId" class="control-label">Group</label>
+                <input tabindex="4" id="groupId" class="form-control" type="text" value="com.szzt.smart"
+                       name="groupId">
+            </div>
+            <div class="form-group artifactid-form-group">
+                <label for="artifactId" class="control-label">Artifact</label>
+                <input tabindex="5" id="artifactId" class="form-control" type="text" value="demo" name="artifactId">
+            </div>
+            <div class="form-group artifactid-form-group">
+                <label for="bootstrapApplicationName" class="control-label">Application Name</label>
+                <input tabindex="6" id="bootstrapApplicationName" class="form-control" type="text" value="Demo"
+                       name="bootstrapApplicationName">
+            </div>
+            <div class="form-group artifactid-form-group">
+                <label for="packageName" class="control-label">Package Name</label>
+                <input tabindex="8" id="packageName" class="form-control" type="text" value="com.szzt.smart.demo"
+                       name="packageName">
+            </div>
+
+
+
+            <p>数据库连接信息<font color="red">(可选项,目前只支持MYSQL,且必须加入smart-web,smart-swagger和smart-mybatis依赖)</font></p>
+            <div class="form-group artifactid-form-group">
+                <label for="dbUrl" class="control-label">数据库地址</label>
+                <input tabindex="8" id="dbUrl" class="form-control" type="text" value="jdbc:mysql://localhost:3306/dbName"
+                       name="dbUrl">
+            </div>
+            <div class="form-group artifactid-form-group">
+                <label for="dbName" class="control-label">数据库名称</label>
+                <input tabindex="8" id="dbName" class="form-control" type="text" value="testDB"
+                       name="dbName">
+            </div>
+            <div class="form-group artifactid-form-group">
+                <label for="dbUserName" class="control-label">数据库用户名</label>
+                <input tabindex="8" id="dbUserName" class="form-control" type="text" value="root"
+                       name="dbUserName">
+            </div>
+            <div class="form-group artifactid-form-group">
+                <label for="dbPassword" class="control-label">数据库密码</label>
+                <input tabindex="8" id="dbPassword" class="form-control" type="password" value="123456"
+                       name="dbPassword">
+            </div>
+
+
+            <div class="row tofullversion">
+                <p>Don't know what to look for? Want more options? <a href="javascript:void(0)">Switch to the full
+                    version.</a></p>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6">
+            <h2>Dependencies</h2>
+            <p>Add Spring Boot Starters and dependencies to your application</p>
+            <div class="form-group">
+                <label for="autocomplete" class="control-label">Search for dependencies</label>
+                <span class="twitter-typeahead" style="position: relative; display: inline-block;">
+                            <input tabindex="-1"
+                                   class="form-control tt-hint"
+                                   type="text"
+                                   readonly=""
+                                   autocomplete="off"
+                                   spellcheck="false"
+                                   style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(250, 250, 250);"
+                                   dir="ltr">
+                            <input
+                                    tabindex="11" id="autocomplete" class="form-control tt-input" type="text"
+                                    placeholder="Web, Cloud, Mybaties, Redis, Feign Kafka, ElasticJob, Zookeeper, ApiDoc, Swagger..." name="autocomplete"
+                                    autocomplete="off"
+                                    spellcheck="false" dir="auto"
+                                    style="position: relative; vertical-align: top; background-color: transparent;">
+                            <pre
+                                    aria-hidden="true"
+                                    style="position: absolute; visibility: hidden; white-space: pre; font-family: monospace; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;">lombok</pre>
+                            <div
+                                    class="tt-menu tt-empty"
+                                    style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none;">
+                                <div class="tt-dataset tt-dataset-starters"></div>
+                            </div>
+                        </span>
+            </div>
+            <div class="form-group">
+                <label for="starters" class="control-label">Selected Dependencies</label>
+                <div id="starters">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div id="dependencies" class="full hidden">
+            <div class="form-group col-sm-6" style="width: 100%">
+                <div class="checkbox" style="width: 49%; display: inline-block" th:each="dependency : ${dependencies}">
+                    <label>
+                        <input type="checkbox" name="style" th:value="${dependency.artifactId}"
+                               th:attr="data-artifactid=${dependency.artifactId},data-groupid=${dependency.groupId}"
+                               th:text="${dependency.name}">
+                        <p class="help-block" th:text="${dependency.groupId}"></p>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <p class="text-center">
+            <button tabindex="12" name="generate-project" class="btn btn-lg btn-primary"
+                    role="button">
+                Generate Project
+            </button>
+        </p>
+    </div>
+</div>
+<form method="post" id="form" action="/generate" class="hidden">
+</form>
+<script src="/js/jquery-3.1.1.min.js"></script>
+<script src="/js/typeahead.bundle.js"></script>
+<script src="/js/mousetrap.min.js"></script>
+<script src="/js/start.js"></script>
+</body>
+</html>

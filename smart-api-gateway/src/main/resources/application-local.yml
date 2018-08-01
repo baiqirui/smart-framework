@@ -1,0 +1,104 @@
+server:
+  port: 9200
+
+
+zuul:
+  add-host-header: true
+  sensitive-headers: "*"
+  routes:
+    sample:
+      path: /sample/**
+      #是否去掉前缀之后再去路由
+      strip-prefix: true
+      serviceId: sample
+    portal:
+      path: /**
+      strip-prefix: true
+      serviceId: paas-portal
+    paas-portal:
+      path: /paas-portal/**
+      strip-prefix: true
+      serviceId: paas-portal
+    paas-bpm:
+      path: /paas-bpm/**
+      strip-prefix: true
+      serviceId: paas-bpm
+    paas-file:
+      path: /paas-file/**
+      strip-prefix: true
+      serviceId: paas-file
+    paas-admin:
+      path: /paas-admin/**
+      strip-prefix: true
+      serviceId: paas-admin
+    paas-permission:
+      path: /paas-permission/**
+      strip-prefix: true
+      serviceId: paas-permission
+    paas-message-center:
+      path: /paas-message-center/**
+      strip-prefix: true
+      serviceId: paas-message-center
+    mobile-business:
+      path: /mobile-business/**
+      strip-prefix: true
+      serviceId: MOBILE-BUSINESS
+#      url: http://10.21.156.40:9018
+
+
+
+
+
+jwt:
+ enable: false
+ excludeds:
+   - /health
+   - /paas-portal/apk
+   - /paas-bpm/editor
+   - /paas-bpm/editor-app
+   - /paas-bpm/model
+   - /paas-message-center
+   - /paas-admin/
+   - /paas-bpm/trace/getTraces
+   - /paas-bpm/api/bpm/participant/start
+   - /paas-bpm/api/bpm/participant/task
+   - /paas-file/file
+   - /paas-admin/login
+   - /paas-portal/login
+   - /paas-portal/resetpasswd
+   - /paas-portal/userLogin
+   - /paas-portal/image
+   - /webSocketServer/sockjs/
+   - /instantMessaging
+   - /jasper
+   - /mobile-business/api/user/login
+   - /sample/test/addUser
+   - /mobile-business/api/user/logout
+   - /mobile-business/api/file
+
+sign:
+  enable: false
+  excludeds:
+     - /health
+     - /paas-portal/apk
+     - /paas-bpm/editor
+     - /paas-bpm/editor-app
+     - /paas-bpm/model
+     - /paas-message-center
+     - /paas-admin/
+     - /paas-bpm/trace/getTraces
+     - /paas-bpm/api/bpm/participant/start
+     - /paas-bpm/api/bpm/participant/task
+     - /paas-file/file
+     - /paas-admin/login
+     - /paas-portal/login
+     - /paas-portal/resetpasswd
+     - /paas-portal/userLogin
+     - /paas-portal/image
+     - /webSocketServer/sockjs/
+     - /instantMessaging
+     - /jasper
+     - /mobile-business/api/user/login
+     - /mobile-business/api/user/logout
+     - /mobile-business/api/file
+

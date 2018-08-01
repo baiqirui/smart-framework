@@ -1,0 +1,59 @@
+server:
+  port: 8071
+
+spring:
+  application:
+    name: sample
+  profiles:
+    active: dev
+#  zipkin:
+#    base-url: http://localhost:9201
+#  kafka:
+#    producer:
+#      bootstrap-servers: 192.168.2.132:9092
+#    consumer:
+#      bootstrap-servers: 192.168.2.132:9092
+#      auto-offset-reset: latest
+#      group-id: lu-kafka-test-1
+#    listener:
+#      concurrency: 3
+
+logging:
+  file: ${spring.application.name}
+  path: logs
+  level:
+     com:
+       szzt:
+        smart:
+          framework: debug
+
+#接口文档配置
+swagger:
+   enable: true  # 是否开启swagger，建议生产关闭，默认true
+   basePackage: com.szzt.smart.framework.sample.web #swagger扫描的api包，不能为空
+   title: 接口服务  # 标题
+   description: 平台接口服务API列表 #描述
+   groupName: API组
+
+#mybatis配置
+smartMybatis:
+     mapperLocation: classpath*:mapper/**/*.xml
+     mapper-scanner: com.szzt.smart.framework.sample.mapper
+     idStrategy: AUTO
+
+
+#数据库连接
+datasource:
+    writeDS:
+         url: jdbc:mysql://rm-uf69j55wv3m56puj5o.mysql.rds.aliyuncs.com:3306/dev?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;noAccessToProcedureBodies=true&amp;generateSimpleParameterMetadata=true&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&useSSL=false
+         username: root
+         password: XiangYR-816
+    readDS:
+         url: jdbc:mysql://rm-uf69j55wv3m56puj5o.mysql.rds.aliyuncs.com:3306/dev?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;noAccessToProcedureBodies=true&amp;generateSimpleParameterMetadata=true&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&useSSL=false
+         username: root
+         password: XiangYR-816
+
+eureka:
+  instance:
+    metadata-map:
+      lancher: 1
