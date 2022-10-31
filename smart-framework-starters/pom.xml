@@ -35,7 +35,7 @@
         <module>smart-framework-starter-zookeeper</module>
 		<module>smart-framework-starter-phoenix</module>
         <module>smart-framework-starter-elasticjob</module>
-		<module>smart-framework-starter-apidoc</module>
+<!--		<module>smart-framework-starter-apidoc</module>-->
 		<module>smart-framework-starter-metrics</module>
     </modules>
 

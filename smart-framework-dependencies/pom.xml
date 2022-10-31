@@ -113,18 +113,18 @@
                 <version>${project.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>com.szzt.smart</groupId>
-                <artifactId>smart-framework-starter-apidoc</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-			
+
 			<dependency>
                 <groupId>com.szzt.smart</groupId>
                 <artifactId>smart-framework-starter-metrics</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
+<!--            <dependency>-->
+<!--                <groupId>com.szzt.smart</groupId>-->
+<!--                <artifactId>smart-framework-starter-apidoc</artifactId>-->
+<!--                <version>${project.version}</version>-->
+<!--            </dependency>-->
         </dependencies>
     </dependencyManagement>
 
@@ -174,18 +174,18 @@
         </pluginManagement>
     </build>
 
-    <distributionManagement>
-        <repository>
-            <id>smart-nexus-releases</id>
-            <name>smart-nexus-releases</name>
-            <url>http://175.6.40.19:10000/nexus/content/repositories/releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>smart-nexus-snapshot</id>
-            <name>smart-nexus-snapshot</name>
-            <url>http://175.6.40.19:10000/nexus/content/repositories/snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
+<!--    <distributionManagement>-->
+<!--        <repository>-->
+<!--            <id>smart-nexus-releases</id>-->
+<!--            <name>smart-nexus-releases</name>-->
+<!--            <url>http://175.6.40.19:10000/nexus/content/repositories/releases/</url>-->
+<!--        </repository>-->
+<!--        <snapshotRepository>-->
+<!--            <id>smart-nexus-snapshot</id>-->
+<!--            <name>smart-nexus-snapshot</name>-->
+<!--            <url>http://175.6.40.19:10000/nexus/content/repositories/snapshots/</url>-->
+<!--        </snapshotRepository>-->
+<!--    </distributionManagement>-->
     <!--
         <repositories>
             <repository>

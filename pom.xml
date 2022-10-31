@@ -29,25 +29,25 @@
     </profile>
   </profiles>
   
-  <repositories>
-    <repository>
-      <id>smart-nexus</id>
-      <name>smart nexus</name>
-      <url>http://175.6.40.19:10000/nexus/content/groups/public/</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-	
-	<repository>
-         <id>nexus-aliyun</id>
-         <name>Nexus aliyun</name>
-         <url>http://maven.aliyun.com/nexus/content/groups/public</url>
-    </repository>
-  </repositories>
+<!--  <repositories>-->
+<!--    <repository>-->
+<!--      <id>smart-nexus</id>-->
+<!--      <name>smart nexus</name>-->
+<!--      <url>http://175.6.40.19:10000/nexus/content/groups/public/</url>-->
+<!--      <releases>-->
+<!--        <enabled>true</enabled>-->
+<!--      </releases>-->
+<!--      <snapshots>-->
+<!--        <enabled>true</enabled>-->
+<!--      </snapshots>-->
+<!--    </repository>-->
+<!--	-->
+<!--	<repository>-->
+<!--         <id>nexus-aliyun</id>-->
+<!--         <name>Nexus aliyun</name>-->
+<!--         <url>http://maven.aliyun.com/nexus/content/groups/public</url>-->
+<!--    </repository>-->
+<!--  </repositories>-->
   
    <distributionManagement>
         <repository>

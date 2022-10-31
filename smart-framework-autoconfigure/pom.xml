@@ -11,6 +11,7 @@
         <groupId>com.szzt.smart</groupId>
         <artifactId>smart-framework-parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../smart-framework-parent</relativePath>
     </parent>
 
     <dependencies>
@@ -289,11 +290,11 @@
         </dependency>
 
         <!-- apidoc -->
-        <dependency>
-            <groupId>com.szzt.smart.apidoc</groupId>
-            <artifactId>smart-apidoc</artifactId>
-            <optional>true</optional>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.szzt.smart.apidoc</groupId>-->
+<!--            <artifactId>smart-apidoc</artifactId>-->
+<!--            <optional>true</optional>-->
+<!--        </dependency>-->
 
 
         <!-- metrics -->
