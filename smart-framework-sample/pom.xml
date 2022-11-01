@@ -23,8 +23,8 @@
 
     <!---->
     <modules>
-        <module>smart-framework-sample-all</module>
+<!--        <module>smart-framework-sample-all</module>-->
         <module>smart-framework-sample-web</module>
-		<module>smart-framework-sample-metrics</module>
+<!--		<module>smart-framework-sample-metrics</module>-->
     </modules>
 </project>

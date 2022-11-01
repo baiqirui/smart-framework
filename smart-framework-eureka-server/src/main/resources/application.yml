@@ -1,5 +1,0 @@
-server:
-  port: 1111
-spring:
-  profiles:
-    active: master

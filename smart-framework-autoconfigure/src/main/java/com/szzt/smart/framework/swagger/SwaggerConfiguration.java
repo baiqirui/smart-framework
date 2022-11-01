@@ -11,7 +11,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
 
-import com.szzt.smart.framework.ConditionalOnMapProperty;
 
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.ParameterBuilder;
@@ -26,8 +25,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableSwagger2
 @ConditionalOnClass(Docket.class)
-@ConditionalOnMapProperty(prefix = "swagger.")
-@ConditionalOnProperty(value = "swagger.enable", matchIfMissing = true)
+@ConditionalOnProperty(value = "smart.swagger", havingValue = "true")
 @EnableConfigurationProperties(SwaggerProperties.class)
 public class SwaggerConfiguration
 {
@@ -36,7 +34,6 @@ public class SwaggerConfiguration
     @DependsOn(value = "swaggerApiInfo")
     public Docket createDocket(SwaggerProperties swaggerProperties, ApiInfo apiInfo)
     {
-        
         Docket docket = new Docket(DocumentationType.SWAGGER_2).groupName(swaggerProperties.getGroupName())
             .useDefaultResponseMessages(false)
             .forCodeGeneration(true)
@@ -71,7 +68,6 @@ public class SwaggerConfiguration
     @Bean("swaggerApiInfo")
     public ApiInfo createApi(SwaggerProperties swaggerProperties)
     {
-        
         return new ApiInfoBuilder().title(swaggerProperties.getTitle()) // 标题
             .description(swaggerProperties.getDescription()) // 描述
             .termsOfServiceUrl("") // 网址

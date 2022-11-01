@@ -1,5 +1,0 @@
-eureka:
- client:
-  serviceUrl:
-    defaultZone: http://10.21.156.35:1111/eureka,http://10.21.156.36:1111/eureka
-

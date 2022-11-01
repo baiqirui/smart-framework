@@ -12,7 +12,7 @@ import java.util.List;
  * @Date 2017-10-12 16:59
  */
 @Data
-@ConfigurationProperties(prefix = "swagger")
+@ConfigurationProperties(prefix = "smart.swagger")
 public class SwaggerProperties
 {
     private String groupName;

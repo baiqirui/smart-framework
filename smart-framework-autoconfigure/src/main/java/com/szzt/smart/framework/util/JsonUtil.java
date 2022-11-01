@@ -65,7 +65,7 @@ public class JsonUtil
     {
         try
         {
-            return objectMapper.readValue(jsonStr, typeReference);
+            return (T) objectMapper.readValue(jsonStr, typeReference);
         }
         catch (IOException e)
         {
