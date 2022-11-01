@@ -11,7 +11,7 @@ import java.util.*;
 
 import com.szzt.smart.framework.web.util.transfer.ValueObject;
 import com.szzt.smart.framework.web.util.transfer.ValueObjectUtil;
-import org.apache.log4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 
 /**
@@ -22,11 +22,9 @@ import org.apache.log4j.Logger;
  * @see [相关类/方法]
  * @since [产品/模块版本]
  */
+@Slf4j
 public class ValueObjectBean implements ValueObject
 {
-    
-    private static Logger LOG = Logger.getLogger(ValueObjectBean.class);
-    
     private static final long serialVersionUID = 6425750269754458356L;
     
     /** 存放原始bean */
@@ -247,7 +245,7 @@ public class ValueObjectBean implements ValueObject
         }
         catch (Exception e)
         {
-            LOG.error("in putValue method occur error");
+            log.error("in putValue method occur error");
             throw e;
         }
         

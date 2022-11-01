@@ -14,6 +14,7 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProcessor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.ConfigurableEnvironment;
@@ -22,16 +23,15 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import com.szzt.smart.framework.ConditionalOnMapProperty;
 import com.szzt.smart.framework.util.EnvironmentUtil;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Configuration
-@ConditionalOnMapProperty(prefix = "datasource.")
+@ConditionalOnExpression("#{${smart.db.datasource.multiple-data-source:true}}")
 @ConditionalOnClass({DruidDataSource.class, SqlSessionFactory.class})
-public class DataSourceConfigruation implements EnvironmentAware, BeanDefinitionRegistryPostProcessor
+public class DataSourceConfiguration implements EnvironmentAware, BeanDefinitionRegistryPostProcessor
 {
     private ConfigurableEnvironment environment;
     
@@ -62,7 +62,7 @@ public class DataSourceConfigruation implements EnvironmentAware, BeanDefinition
         {
             // 创建dataSource，并注入到spring中;
             MultiDataSourceProperties multiDataSourceProperties = EnvironmentUtil
-                .resolverSetting(MultiDataSourceProperties.class, "", environment, "datasource 配置");
+                .resolverSetting(MultiDataSourceProperties.class, "smart.db", environment);
             
             DataSource dynamicDataSource = createDataSource(multiDataSourceProperties);
             
@@ -71,7 +71,7 @@ public class DataSourceConfigruation implements EnvironmentAware, BeanDefinition
             
             // 初始化SqlSessionFactory，并设置相关配置参数(luMybatis前缀的配置参数);
             SqlSessionFactory mySqlSessionFactory = mySqlSessionFactory(dynamicDataSource,
-                multiDataSourceProperties.getSmartMybatis());
+                multiDataSourceProperties.getMybatisConfig());
             
             // 将数据源，事务管理器，SqlSessionFactory注册到springbean;
             beanFactory.registerSingleton("dynamicDataSource", dynamicDataSource);
@@ -165,7 +165,6 @@ public class DataSourceConfigruation implements EnvironmentAware, BeanDefinition
         datasource.setTestWhileIdle(properties.isTestWhileIdle());
         datasource.setTestOnBorrow(properties.isTestOnBorrow());
         datasource.setTestOnReturn(properties.isTestOnReturn());
-        
         return datasource;
     }
 }

@@ -1,14 +1,17 @@
-smartMybatis:
-    configLocation: classpath:mybatis/mysql/mybatis-config.xml
+smart:
+  db:
+   mybatis-config:
+     configLocation: classpath:mybatis/mysql/mybatis-config.xml
 
+#通用Mapper框架配置
 mapper:
-    mappers: com.szzt.smart.framework.mybatis.mapper.FrameworkBaseMapper
-    not-empty: false
-    identity: MYSQL
-    before: true
+  mappers: com.szzt.smart.framework.mybatis.mapper.FrameworkBaseMapper
+  not-empty: false
+  identity: MYSQL
+  before: true
 
 pagehelper:
-    helperDialect: mysql
-    reasonable: true
-    supportMethodsArguments: true
-    params: count=countSql
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql

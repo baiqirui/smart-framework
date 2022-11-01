@@ -65,17 +65,17 @@
                 <version>${project.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>com.szzt.smart</groupId>
-                <artifactId>smart-framework-starter-redis</artifactId>
-                <version>${project.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>com.szzt.smart</groupId>-->
+<!--                <artifactId>smart-framework-starter-redis</artifactId>-->
+<!--                <version>${project.version}</version>-->
+<!--            </dependency>-->
 
-            <dependency>
-                <groupId>com.szzt.smart</groupId>
-                <artifactId>smart-framework-starter-feign</artifactId>
-                <version>${project.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>com.szzt.smart</groupId>-->
+<!--                <artifactId>smart-framework-starter-feign</artifactId>-->
+<!--                <version>${project.version}</version>-->
+<!--            </dependency>-->
 
             <dependency>
                 <groupId>com.szzt.smart</groupId>
@@ -89,36 +89,36 @@
                 <version>${project.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>com.szzt.smart</groupId>
-                <artifactId>smart-framework-starter-kafka</artifactId>
-                <version>${project.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>com.szzt.smart</groupId>-->
+<!--                <artifactId>smart-framework-starter-kafka</artifactId>-->
+<!--                <version>${project.version}</version>-->
+<!--            </dependency>-->
 
-            <dependency>
-                <groupId>com.szzt.smart</groupId>
-                <artifactId>smart-framework-starter-zookeeper</artifactId>
-                <version>${project.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>com.szzt.smart</groupId>-->
+<!--                <artifactId>smart-framework-starter-zookeeper</artifactId>-->
+<!--                <version>${project.version}</version>-->
+<!--            </dependency>-->
 
-            <dependency>
-                <groupId>com.szzt.smart</groupId>
-                <artifactId>smart-framework-starter-phoenix</artifactId>
-                <version>${project.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>com.szzt.smart</groupId>-->
+<!--                <artifactId>smart-framework-starter-phoenix</artifactId>-->
+<!--                <version>${project.version}</version>-->
+<!--            </dependency>-->
 
-            <dependency>
-                <groupId>com.szzt.smart</groupId>
-                <artifactId>smart-framework-starter-elasticjob</artifactId>
-                <version>${project.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>com.szzt.smart</groupId>-->
+<!--                <artifactId>smart-framework-starter-elasticjob</artifactId>-->
+<!--                <version>${project.version}</version>-->
+<!--            </dependency>-->
 
 
-			<dependency>
-                <groupId>com.szzt.smart</groupId>
-                <artifactId>smart-framework-starter-metrics</artifactId>
-                <version>${project.version}</version>
-            </dependency>
+<!--			<dependency>-->
+<!--                <groupId>com.szzt.smart</groupId>-->
+<!--                <artifactId>smart-framework-starter-metrics</artifactId>-->
+<!--                <version>${project.version}</version>-->
+<!--            </dependency>-->
 
 <!--            <dependency>-->
 <!--                <groupId>com.szzt.smart</groupId>-->

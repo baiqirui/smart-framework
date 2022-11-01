@@ -29,8 +29,8 @@
         <module>smart-framework-starter-swagger</module>
         <module>smart-framework-starter-redis</module>
         <module>smart-framework-starter-feign</module>
-        <module>smart-framework-starter-xxljob</module>
         <module>smart-framework-starter-kafka</module>
+<!--        <module>smart-framework-starter-xxljob</module>-->
 <!--        <module>smart-framework-starter-cloud</module>-->
 <!--        <module>smart-framework-starter-zookeeper</module>-->
 <!--		<module>smart-framework-starter-phoenix</module>-->

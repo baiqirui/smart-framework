@@ -8,8 +8,8 @@ import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
 
 /**
  * 
@@ -20,10 +20,9 @@ import org.apache.log4j.Logger;
  * @see [相关类/方法]
  * @since [产品/模块版本]
  */
+@Slf4j
 public class DESEncrypt
 {
-    private static final Logger LOG = Logger.getLogger(DESEncrypt.class);
-    
     private static final String Algorithm = "DES"; // 定义 加密算法,可用 DES,DESede,Blowfish
     
     private static final String transformation = "DES/ECB/NoPadding";// NoPadding ，PKCS5Padding
@@ -236,7 +235,7 @@ public class DESEncrypt
     {
         if (StringUtils.isEmpty(key))
         {
-            LOG.error("decrypt key is " + key);
+            log.error("decrypt key is " + key);
         }
         return new String(
             DESEncrypt.removeAppendedByte(DESEncrypt.decryptMode(key.getBytes(), DESEncrypt.getDecodeBytes(content))));
@@ -257,7 +256,7 @@ public class DESEncrypt
     {
         if (StringUtils.isEmpty(key))
         {
-            LOG.error("encrypt key is " + key);
+            log.error("encrypt key is " + key);
         }
         return HexStringUtil.bytes2HexString(DESEncrypt.encryptMode(DESEncrypt.getSourceBytes(key.getBytes()),
             DESEncrypt.getSourceBytes(content.getBytes())));

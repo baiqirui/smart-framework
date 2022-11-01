@@ -15,22 +15,23 @@ logging:
        szzt:
         smart:
           framework: debug
-#mybatis配置
-smartMybatis:
-     mapperLocation: classpath*:mapper/**/*.xml
-     mapper-scanner: com.szzt.smart.framework.sample.mapper
-     idStrategy: AUTO
 
-#数据库配置
-datasource:
-    writeDS:
-         url: jdbc:mysql://rm-uf69j55wv3m56puj5o.mysql.rds.aliyuncs.com:3306/dev?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;noAccessToProcedureBodies=true&amp;generateSimpleParameterMetadata=true&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&useSSL=false
-         username: root
-         password: XiangYR-816
-
-#接口文档配置
-swagger:
-   enable: true  # 是否开启swagger，建议生产关闭，默认true
+smart:
+  #数据库配置
+ db:
+   datasource:
+     writeDS:
+       url: jdbc:mysql://pre-us.clxptq1z8dud.rds.cn-north-1.amazonaws.com.cn:3306/newton?useUnicode=true&characterEncoding=utf8&useSSL=false&rewriteBatchedStatements=true&zeroDateTimeBehavior=convertToNull&useTimezone=true
+       username: QA
+       password: webull1688
+  #mybatis配置
+   mybatis-config:
+      mapper-location: classpath*:mapper/**/*.xml
+      mapper-scanner: com.szzt.smart.framework.sample.mapper
+      id-strategy: AUTO
+   #接口文档配置
+ swagger:
+   enable: true  # 是否开启swagge
    basePackage: com.szzt.smart.framework.sample.web #swagger扫描的api包，不能为空
    title: 接口服务  # 标题
    description: 平台接口服务API列表 #描述

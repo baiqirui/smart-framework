@@ -21,7 +21,7 @@ import com.github.pagehelper.PageInterceptor;
 @Configuration
 @ConditionalOnClass({PageHelper.class, SqlSessionFactory.class})
 @EnableConfigurationProperties(PageHelperProperties.class)
-@AutoConfigureAfter(DataSourceConfigruation.class)
+@AutoConfigureAfter(DataSourceConfiguration.class)
 public class PageHelperConfiguration
 {
     

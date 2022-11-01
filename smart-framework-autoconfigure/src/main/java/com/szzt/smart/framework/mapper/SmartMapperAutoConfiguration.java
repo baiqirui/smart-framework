@@ -30,11 +30,10 @@ import javax.annotation.PostConstruct;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.szzt.smart.framework.ConditionalOnMapProperty;
-import com.szzt.smart.framework.mybatis.config.DataSourceConfigruation;
+import com.szzt.smart.framework.mybatis.config.DataSourceConfiguration;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
@@ -50,11 +49,11 @@ import tk.mybatis.mapper.mapperhelper.MapperHelper;
  * @author liuzh
  */
 @Configuration
-@ConditionalOnMapProperty(prefix = "mapper.")
+@ConditionalOnMapProperty(prefix = "mapper")
 @EnableConfigurationProperties(MapperProperties.class)
-@ConditionalOnClass({DruidDataSource.class,SqlSessionFactory.class})
-@AutoConfigureAfter(DataSourceConfigruation.class)
-public class LuMapperAutoConfiguration {
+@ConditionalOnClass({DruidDataSource.class, SqlSessionFactory.class})
+@AutoConfigureAfter(DataSourceConfiguration.class)
+public class SmartMapperAutoConfiguration {
 
     @Autowired
     private List<SqlSessionFactory> sqlSessionFactoryList;

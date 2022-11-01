@@ -22,7 +22,7 @@ class MapPropertyCondition extends SpringBootCondition
 //        Map<String, Object> properties = resolver.getSubProperties(prefix);
         Iterable<ConfigurationPropertySource> sources = ConfigurationPropertySources.get(context.getEnvironment());
         Binder binder = new Binder(sources);
-        BindResult<Properties> bindResult = binder.bind("spring.datasource", Properties.class);
+        BindResult<Properties> bindResult = binder.bind(prefix, Properties.class);
         Properties properties= bindResult.get();
         return new ConditionOutcome(!properties.isEmpty(), String.format("Map property [%s] is empty", prefix));
     }

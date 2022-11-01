@@ -25,7 +25,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableSwagger2
 @ConditionalOnClass(Docket.class)
-@ConditionalOnProperty(value = "smart.swagger", havingValue = "true")
+@ConditionalOnProperty(value = "smart.swagger.enable", havingValue = "true")
 @EnableConfigurationProperties(SwaggerProperties.class)
 public class SwaggerConfiguration
 {

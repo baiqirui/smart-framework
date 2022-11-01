@@ -1,15 +1,4 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 com.szzt.smart.framework.swagger.SwaggerConfiguration,\
-com.szzt.smart.framework.mybatis.config.DataSourceConfigruation,\
-com.szzt.smart.framework.mapper.LuMapperAutoConfiguration,\
-com.szzt.smart.framework.phoenix.PhoenixMybatisConfiguration,\
-com.szzt.smart.framework.redis.JedisClusterConfiguration,\
-com.szzt.smart.framework.redis.JedisCacheConfiguration,\
-com.szzt.smart.framework.web.config.SpringContextConfig,\
-com.szzt.smart.framework.feign.FeignConfiguration,\
-com.szzt.smart.framework.xxljob.XxlJobConfiguration,\
-com.szzt.smart.framework.kafka.LuKafkaConfiguration,\
-com.szzt.smart.framework.zookeeper.LuZookeeperAutoConfiguration,\
-com.szzt.smart.framework.elasticjob.SmartElasticJobAutoConfiguration,\
-com.szzt.smart.framework.apidoc.config.ApiDocConfiguration,\
-com.szzt.smart.framework.metrics.MetricsAutoConfiguration
+com.szzt.smart.framework.mybatis.config.DataSourceConfiguration,\
+com.szzt.smart.framework.web.config.SpringContextConfig

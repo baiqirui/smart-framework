@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 
@@ -23,10 +23,9 @@ import org.apache.log4j.Logger;
  * @see [相关类/方法]
  * @since [产品/模块版本]
  */
+@Slf4j
 public final class ValueObjectUtil
 {
-    private static Logger LOG = Logger.getLogger(ValueObjectUtil.class);
-    
     private static final String DATE_MODEL1 = "yyyyMMdd";
     
     private static final String DATE_MODEL2 = "yyyy-MM-dd";
@@ -102,7 +101,7 @@ public final class ValueObjectUtil
         }
         catch (Exception e)
         {
-            LOG.error("值对象拷贝时发生错误,在" + ValueObjectUtil.class.getName() + "的 transfer方法中.", e);
+            log.error("值对象拷贝时发生错误,在" + ValueObjectUtil.class.getName() + "的 transfer方法中.", e);
         }
         return destObject;
     }
@@ -210,7 +209,7 @@ public final class ValueObjectUtil
         }
         catch (Exception e)
         {
-            LOG.error("对象设值时发生错误,在" + ValueObjectUtil.class.getName() + "的 setValue方法中.");
+            log.error("对象设值时发生错误,在" + ValueObjectUtil.class.getName() + "的 setValue方法中.");
             throw e;
         }
     }
@@ -286,7 +285,7 @@ public final class ValueObjectUtil
         }
         catch (ParseException e)
         {
-            LOG.error("日期时发生错误在" + ValueObjectUtil.class.getName() + "的 transferToDate方法中.");
+            log.error("日期时发生错误在" + ValueObjectUtil.class.getName() + "的 transferToDate方法中.");
             throw e;
         }
         // 判断Date的真实类型
@@ -437,7 +436,6 @@ public final class ValueObjectUtil
     /**
      * 判断集合是否为空
      * 
-     * @param c
      * @return [参数说明]
      * 
      * @return boolean [返回类型说明]
@@ -452,7 +450,6 @@ public final class ValueObjectUtil
     /**
      * 判断集合是否不为空 <功能详细描述>
      * 
-     * @param c
      * @return [参数说明]
      * 
      * @return boolean [返回类型说明]

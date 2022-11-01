@@ -10,7 +10,7 @@ import lombok.Data;
  * Created on 2017/8/8.
  */
 @Data
-@ConfigurationProperties(prefix = "pagehelper")
+@ConfigurationProperties(prefix = "smart.pagehelper")
 public class PageHelperProperties
 {
     private String helperDialect = "mysql";

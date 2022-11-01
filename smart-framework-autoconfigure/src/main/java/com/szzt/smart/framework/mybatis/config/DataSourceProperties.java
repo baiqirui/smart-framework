@@ -11,7 +11,7 @@ public class DataSourceProperties
     
     private String password;
     
-    private String driverClassName = "com.mysql.jdbc.Driver";
+    private String driverClassName = "com.mysql.cj.jdbc.Driver";
 
     private String type = "com.alibaba.druid.pool.DruidDataSource";
 
@@ -21,7 +21,7 @@ public class DataSourceProperties
 
     private int maxActive = 20;
 
-    private int maxWait = 10000;
+    private int maxWait = 30000;
 
     private int timeBetweenEvictionRunsMillis = 60000;
 

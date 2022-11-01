@@ -1,24 +1,21 @@
 package com.szzt.smart.framework.mybatis.service;
 
-import java.lang.reflect.Method;
-import java.util.*;
-
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.szzt.smart.framework.constant.CommonConstant;
+import com.szzt.smart.framework.mybatis.entity.BaseEntity;
 import com.szzt.smart.framework.mybatis.entity.PageResult;
 import com.szzt.smart.framework.mybatis.entity.StringKeyBaseEntity;
-import jline.internal.Log;
+import com.szzt.smart.framework.mybatis.mapper.FrameworkBaseMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.ibatis.session.RowBounds;
-
-import com.github.pagehelper.Page;
-import com.github.pagehelper.PageHelper;
-import com.szzt.smart.framework.mybatis.entity.BaseEntity;
-import com.szzt.smart.framework.mybatis.mapper.FrameworkBaseMapper;
-
 import org.springframework.beans.factory.annotation.Value;
 import tk.mybatis.mapper.entity.Example;
+
+import java.lang.reflect.Method;
+import java.util.*;
 
 /**
  * 基础服务Service，每个业务服务类建议都继承该类;
@@ -34,8 +31,8 @@ public abstract class BaseService<T>
     protected abstract FrameworkBaseMapper<T> getMapper();
     
     // ID生成策略，目前包括三种,auto(自动生成),UUID,Sequence,默认为auto
-    @Value("${smartMybatis.idStrategy}")
-    private String idStrategy = CommonConstant.ID_STRATEGY_AUTO;
+    @Value("${smart.db.mybatis-config.idStrategy:auto}")
+    private String idStrategy;
     
     public T get(Object id)
     {

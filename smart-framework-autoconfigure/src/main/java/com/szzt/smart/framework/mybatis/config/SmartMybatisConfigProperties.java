@@ -4,7 +4,7 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @Data
-@ConfigurationProperties(prefix = "smartMybatis")
+@ConfigurationProperties(prefix = "smart.mybatis")
 public class SmartMybatisConfigProperties
 {
     private String configLocation;

@@ -9,11 +9,10 @@ import org.springframework.core.env.ConfigurableEnvironment;
 public class EnvironmentUtil
 {
     // 读取配置并转换成对象
-    public static <T> T resolverSetting(Class<T> propertiesClass, String targetName, ConfigurableEnvironment environment,
-        String propertiesName)
+    public static <T> T resolverSetting(Class<T> propertiesClass, String propertiesPrefix, ConfigurableEnvironment environment)
     {
         Binder binder = Binder.get(environment);
-        return binder.bind("webull.lettuce", Bindable.of(propertiesClass)).get();
+        return binder.bind(propertiesPrefix, Bindable.of(propertiesClass)).get();
 //
 //        ConfigurationFactory.PropertiesConfigurationFactory<Object> factory = new PropertiesConfigurationFactory<>(clazz);
 //        factory.setTargetName(targetName);
