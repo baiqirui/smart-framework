@@ -7,50 +7,50 @@
 
     <groupId>com.szzt.smart</groupId>
     <artifactId>smart-framework-initializr</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.1.0-SNAPSHOT</version>
     <name>smart-framework-initializr</name>
     <description>smart-framework-initializr</description>
 
     <properties>
         <source.encoding>UTF-8</source.encoding>
         <java.version>1.8</java.version>
-        <smart-framework.version>1.0.0-SNAPSHOT</smart-framework.version>
-        <spring-boot.version>1.5.10.RELEASE</spring-boot.version>
+        <smart-framework.version>1.1.0-SNAPSHOT</smart-framework.version>
+        <spring-boot.version>2.2.0.RELEASE</spring-boot.version>
     </properties>
 
-    <repositories>
-        <repository>
-            <id>smart-nexus</id>
-            <name>smart nexus repository</name>
-            <url>http://175.6.40.19:10000/nexus/content/groups/public/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
+<!--    <repositories>-->
+<!--        <repository>-->
+<!--            <id>smart-nexus</id>-->
+<!--            <name>smart nexus repository</name>-->
+<!--            <url>http://175.6.40.19:10000/nexus/content/groups/public/</url>-->
+<!--            <releases>-->
+<!--                <enabled>true</enabled>-->
+<!--            </releases>-->
+<!--            <snapshots>-->
+<!--                <enabled>true</enabled>-->
+<!--            </snapshots>-->
+<!--        </repository>-->
 
-        <repository>
-            <id>nexus-aliyun</id>
-            <name>Nexus aliyun</name>
-            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
-        </repository>
-    </repositories>
+<!--        <repository>-->
+<!--            <id>nexus-aliyun</id>-->
+<!--            <name>Nexus aliyun</name>-->
+<!--            <url>http://maven.aliyun.com/nexus/content/groups/public</url>-->
+<!--        </repository>-->
+<!--    </repositories>-->
 
-    <pluginRepositories>
-        <pluginRepository>
-            <id>nexus</id>
-            <name>Team Nexus Repository</name>
-            <url>http://175.6.40.19:10000/nexus/content/groups/public</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
+<!--    <pluginRepositories>-->
+<!--        <pluginRepository>-->
+<!--            <id>nexus</id>-->
+<!--            <name>Team Nexus Repository</name>-->
+<!--            <url>http://175.6.40.19:10000/nexus/content/groups/public</url>-->
+<!--            <releases>-->
+<!--                <enabled>true</enabled>-->
+<!--            </releases>-->
+<!--            <snapshots>-->
+<!--                <enabled>true</enabled>-->
+<!--            </snapshots>-->
+<!--        </pluginRepository>-->
+<!--    </pluginRepositories>-->
 
 
     <dependencies>
@@ -89,7 +89,7 @@
         <dependency>
             <groupId>org.apache.ant</groupId>
             <artifactId>ant</artifactId>
-            <version>1.10.1</version>
+            <version>1.10.12</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.apache.ant</groupId>
@@ -101,7 +101,7 @@
         <dependency>
             <groupId>com.szzt.smart</groupId>
             <artifactId>smart-generatorcode</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
@@ -136,7 +136,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>1.5.10.RELEASE</version>
+                <version>${spring-boot.version}</version>
                 <executions>
                     <execution>
                         <goals>

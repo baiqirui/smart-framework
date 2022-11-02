@@ -108,7 +108,6 @@ public class GenerateService
         {
             return;
         }
-
         try
         {
 

@@ -2,12 +2,13 @@ server:
   port: 8080
 
 {{#useSwaggerModel}}
-swagger:  #swagger配置
-   enable: true  # 是否开启swagger，建议生产关闭，默认true
-   basePackage: {{packageName}}.controller  #swagger扫描的api包，不能为空
-   title:  接入API列表  # 标题
-   description: 接入API列表 #描述
-   groupName: group-1
+smart:
+ swagger:  #swagger配置
+    enable: true  # 是否开启swagger，建议生产关闭，默认true
+    basePackage: {{packageName}}.controller  #swagger扫描的api包，不能为空
+    title:  接入API列表  # 标题
+    description: 接入API列表 #描述
+    groupName: group-1
 {{/useSwaggerModel}}
 
 
@@ -29,37 +30,38 @@ spring:
 
 
 {{#useMybatisModel}}
-datasource:
+smart:
+  db:
+   datasource:
    {{^dbInfo}}
-    writeDS:
-         url: jdbc:mysql://localhost:3306/b2b_market?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;noAccessToProcedureBodies=true&amp;generateSimpleParameterMetadata=true&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&useSSL=false
-         username: xxx
-         password: xxx
-         driverClassName: com.mysql.jdbc.Driver
-    readDS:
-         url: jdbc:mysql://localhost:3306/b2b_market?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;noAccessToProcedureBodies=true&amp;generateSimpleParameterMetadata=true&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&useSSL=false
-         username: xxx
-         password: xxx
-         driverClassName: com.mysql.jdbc.Driver
+     writeDS:
+          url: jdbc:mysql://localhost:3306/b2b_market?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;noAccessToProcedureBodies=true&amp;generateSimpleParameterMetadata=true&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&useSSL=false
+          username: xxx
+          password: xxx
+          driverClassName: com.mysql.jdbc.Driver
+     readDS:
+          url: jdbc:mysql://localhost:3306/b2b_market?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;noAccessToProcedureBodies=true&amp;generateSimpleParameterMetadata=true&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&useSSL=false
+          username: xxx
+          password: xxx
+          driverClassName: com.mysql.jdbc.Driver
     {{/dbInfo}}
     {{#dbInfo}}
-        writeDS:
+         writeDS:
              url: {{dbUrl}}?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;noAccessToProcedureBodies=true&amp;generateSimpleParameterMetadata=true&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&useSSL=false
              username: {{dbUserName}}
              password: {{dbPassword}}
              driverClassName: com.mysql.jdbc.Driver
-        readDS:
+         readDS:
              url: {{dbUrl}}?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;noAccessToProcedureBodies=true&amp;generateSimpleParameterMetadata=true&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&useSSL=false
              username: {{dbUserName}}
              password: {{dbPassword}}
              driverClassName: com.mysql.jdbc.Driver
     {{/dbInfo}}
-
-smartMybatis:
-    aliasPackage: {{packageName}}.entity
-    mapperLocation: classpath*:mapper/**/*.xml
-    mapper-scanner: {{packageName}}.mapper
-    idStrategy: AUTO
+   mybatis-config:
+     aliasPackage: {{packageName}}.entity
+     mapper-location: classpath*:mapper/**/*.xml
+     mapper-scanner: {{packageName}}.mapper
+     id-strategy: AUTO
 {{/useMybatisModel}}
 
 

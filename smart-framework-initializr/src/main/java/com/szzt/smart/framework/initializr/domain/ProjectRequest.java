@@ -32,7 +32,7 @@ public class ProjectRequest
     
     private String frameworkVersion;
     
-    private String mavenPluginVersion = "1.5.10.RELEASE";
+    private String mavenPluginVersion = "2.2.0.RELEASE";
 
     private String dbUserName;
 
@@ -40,7 +40,7 @@ public class ProjectRequest
 
     private String dbPassword;
 
-    private String driverName = "com.mysql.jdbc.Driver";
+    private String driverName = "com.mysql.cj.jdbc.Driver";
 
     private String dbName;
 

@@ -10,7 +10,7 @@ import java.util.Enumeration;
 import java.util.zip.CRC32;
 import java.util.zip.CheckedOutputStream;
 
-import org.apache.log4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.tools.zip.ZipEntry;
 import org.apache.tools.zip.ZipFile;
 import org.apache.tools.zip.ZipOutputStream;
@@ -23,10 +23,9 @@ import org.apache.tools.zip.ZipOutputStream;
  * @see [相关类/方法]
  * @since [产品/模块版本]
  */
+@Slf4j
 public final class ZipUtils
 {
-    private static final Logger log = Logger.getLogger(ZipUtils.class);
-    
     private ZipUtils()
     {
         
