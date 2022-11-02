@@ -21,9 +21,7 @@ smart:
  db:
    datasource:
      writeDS:
-       url: jdbc:mysql://pre-us.clxptq1z8dud.rds.cn-north-1.amazonaws.com.cn:3306/newton?useUnicode=true&characterEncoding=utf8&useSSL=false&rewriteBatchedStatements=true&zeroDateTimeBehavior=convertToNull&useTimezone=true
-       username: QA
-       password: webull1688
+       
   #mybatis配置
    mybatis-config:
       mapper-location: classpath*:mapper/**/*.xml
